@@ -6,6 +6,7 @@ const AlertMessage = document.getElementById("alertMessage");
 const emailregex =
   /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 let newData;
+let myfunction;
 
 console.log(saveBTN);
 console.log(emailContainer);
@@ -22,6 +23,7 @@ function handleChange(event) {
 
 function BTNsave() {
   emailContainer.innerHTML = newData;
+  AlertMessage.innerHTML = ''
 }
 
 function validateEmail() {
@@ -29,11 +31,14 @@ function validateEmail() {
   if (currentValue != null) {
     if (emailregex.test(currentValue)) {
       console.log("valid email");
-      AlertMessage.innerHTML = "vaild email"
-    }
-    else{
-      console.log("not an email")
-      AlertMessage.innerHTML = "invaild email"
+      AlertMessage.innerHTML ='<span style="font-size:40px; color:green; padding-top:10px">Valid email</span>' ;
+      alert("valid email");
+    } 
+    
+    else {
+      console.log("not an email");
+      AlertMessage.innerHTML = '<span style="font-size:40px; color:red; padding-top:10px">Invalid email</span>';
     }
   }
 }
+
