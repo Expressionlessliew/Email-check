@@ -69,12 +69,10 @@ function Checkph() {
   const phoneValue = phoneContainer.innerHTML;
   if (phoneValue != null) {
     if (phoneregex.test(phoneValue)) {
-      //   console.log("valid email");
       alertPHone.innerHTML =
         '<span style="font-size:40px; color:green; padding-top:10px">Valid phone number</span>';
     } 
     else {
-      //   console.log("not an email");
       alertPHone.innerHTML =
         '<span style="font-size:40px; color:red; padding-top:10px">Invalid phone number</span>';
     }
