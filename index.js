@@ -1,3 +1,4 @@
+// EMAIL
 const emailContainer = document.getElementById("emailcontainer");
 const saveBTN = document.getElementById("save");
 const checkbtn = document.getElementById("check-email");
@@ -6,21 +7,49 @@ const AlertMessage = document.getElementById("alertMessage");
 const emailregex =
   /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 let newData;
-let phoneData;
 
+// EMAIL FUNCTION
+saveBTN.addEventListener("click", BTNsave);
+emailinput.addEventListener("input", handleChange);
+checkbtn.addEventListener("click", validateEmail);
+
+function handleChange(event) {
+    newData = event.target.value;
+  }
+  
+  function BTNsave() {
+    emailContainer.innerHTML = newData;
+    AlertMessage.innerHTML = "";
+  }
+  
+  function validateEmail() {
+    const currentValue = emailContainer.innerHTML;
+    if (currentValue != null) {
+      if (emailregex.test(currentValue)) {
+        //   console.log("valid email");
+        AlertMessage.innerHTML =
+          '<span style="font-size:40px; color:green; padding-top:10px">Valid email</span>';
+        alert("valid email");
+      } else {
+        //   console.log("not an email");
+        AlertMessage.innerHTML =
+          '<span style="font-size:40px; color:red; padding-top:10px">Invalid email</span>';
+      }
+    }
+  }
+  
+
+// PHONE
 const Phsave = document.getElementById("phsave");
 const Checkbtn = document.getElementById("check-phone");
 const Phoneinput = document.getElementById("phone-input");
 const phoneContainer = document.getElementById("phonecontainer");
 const phoneregex = /^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$/;
 const alertPHone = document.getElementById("alertphone");
-
+let phoneData;
 console.log(phoneContainer);
 
-saveBTN.addEventListener("click", BTNsave);
-emailinput.addEventListener("input", handleChange);
-checkbtn.addEventListener("click", validateEmail);
-
+// PHONE FUNCTION
 Phsave.addEventListener("click", PHsave);
 Phoneinput.addEventListener("input", PhnData);
 Checkbtn.addEventListener("click", Checkph);
@@ -48,31 +77,6 @@ function Checkph() {
       //   console.log("not an email");
       alertPHone.innerHTML =
         '<span style="font-size:40px; color:red; padding-top:10px">Invalid phone number</span>';
-    }
-  }
-}
-
-function handleChange(event) {
-  newData = event.target.value;
-}
-
-function BTNsave() {
-  emailContainer.innerHTML = newData;
-  AlertMessage.innerHTML = "";
-}
-
-function validateEmail() {
-  const currentValue = emailContainer.innerHTML;
-  if (currentValue != null) {
-    if (emailregex.test(currentValue)) {
-      //   console.log("valid email");
-      AlertMessage.innerHTML =
-        '<span style="font-size:40px; color:green; padding-top:10px">Valid email</span>';
-      alert("valid email");
-    } else {
-      //   console.log("not an email");
-      AlertMessage.innerHTML =
-        '<span style="font-size:40px; color:red; padding-top:10px">Invalid email</span>';
     }
   }
 }
