@@ -1,3 +1,3 @@
 # My sixth Mini-project
 
-The link()
+The link(https://expressionlessliew.github.io/Email-check/)
