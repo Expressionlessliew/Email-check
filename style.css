@@ -1,5 +1,9 @@
 body {
-  background-color: #1d2326;
+  background-image: url(Good\ and\ Evil\ by\ Syllver95.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: #bfa38a;
   font-family: monospace;
 }
